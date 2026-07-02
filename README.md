@@ -88,7 +88,7 @@ Documentación ampliada en [`docs/`](docs/) — [API](docs/api_spec.md) ·
 |---|---|---|
 | **Jerónimo Hoyos** | Ingeniero en IA | Ing. de Sistemas e Informática · UNAL Medellín |
 | **Daniel Arango** | Ingeniero de Software | Ing. de Sistemas · EAFIT |
-| **José Miguel García** | Data Scientist | Estadística · UNAL Medellín |
+| **Jose Miguel García** | Data Scientist | Estadística · UNAL Medellín |
 | **Valentina Muñoz** | Administradora | Ing. Administrativa · UNAL Medellín |
 
 <div align="center">
