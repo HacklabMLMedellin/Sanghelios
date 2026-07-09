@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../presentation/assets/logo.png" alt="Sanghelios" width="300">
+<img src="../RECURSOS/presentation/assets/logo.png" alt="Sanghelios" width="300">
 
 # Fuentes de datos
 

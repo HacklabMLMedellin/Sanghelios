@@ -24,7 +24,7 @@ uv sync
 
 ## Compilar la presentación
 
-Todos los comandos se ejecutan dentro de la carpeta `presentation/`
+Todos los comandos se ejecutan dentro de la carpeta `RECURSOS/presentation/`
 (la ruta `assets/` se resuelve de forma relativa).
 
 ```bash
@@ -72,7 +72,7 @@ uv run manim-slides convert --to=pptx presentation presentation.pptx
 ## Estructura
 
 ```
-presentation/
+RECURSOS/presentation/
 ├── main.py            # Orquestador: clase `presentation` que recorre SLIDES
 ├── estilo.py          # Paleta, tipografía y constantes compartidas
 ├── componentes.py     # Fábricas de mobjects (tarjetas, reloj, árboles…)

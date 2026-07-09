@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from src.campaign_ai import _fallback, plan_campaign  # noqa: E402
+from src.agents.citizen_agent import _fallback, plan_campaign  # noqa: E402
 
 CAMPOS = {
     "titular", "mensaje", "publico_objetivo", "canal",

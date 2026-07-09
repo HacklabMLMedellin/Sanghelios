@@ -10,7 +10,7 @@ from pathlib import Path
 
 from pydantic import BaseModel
 
-from src.campaign_ai import buscar_lugar, plan_campaign
+from src.agents.citizen_agent import buscar_lugar, plan_campaign
 from src.tools.write_images import (
     FLYER_TEMPLATES,
     BloodDonationPoster,
