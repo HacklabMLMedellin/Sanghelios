@@ -24,7 +24,9 @@ Detalle técnico en [docs/architecture](docs/architecture/README.md).
 
 <div align="center">
 
-▶ [**Ver la presentación en YouTube**](https://www.youtube.com/watch?v=7mOG2cgMJ0c)
+[![Demo en vivo](https://img.shields.io/badge/🌐_Probar_la_demo-en_vivo-BF1212?style=for-the-badge)](https://main.jero98772.page/sanghelios/)
+&nbsp;
+[![Presentación en YouTube](https://img.shields.io/badge/Ver_la_presentación-YouTube-1F2937?style=for-the-badge&logo=youtube&logoColor=FF0000)](https://www.youtube.com/watch?v=7mOG2cgMJ0c)
 
 </div>
 
