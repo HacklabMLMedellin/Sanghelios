@@ -20,7 +20,6 @@ anticipación y convierte esa señal en campañas de donación diseñadas con IA
 La **presión** del sistema (demanda − oferta, media móvil de 7 días) se compara
 contra un umbral τ. Si el modelo ve escasez a 14 días, el asistente de IA diseña
 la campaña, genera el flyer y la despliega en el mapa.
-Detalle técnico en [docs/architecture](docs/architecture/README.md).
 
 <div align="center">
 
@@ -29,6 +28,15 @@ Detalle técnico en [docs/architecture](docs/architecture/README.md).
 [![Presentación en YouTube](https://img.shields.io/badge/Ver_la_presentación-YouTube-1F2937?style=for-the-badge&logo=youtube&logoColor=FF0000)](https://www.youtube.com/watch?v=7mOG2cgMJ0c)
 
 </div>
+
+## Índice
+
+- [Módulos](#módulos)
+- [Datos abiertos](#datos-abiertos)
+- [Ejecutar](#ejecutar)
+- [Estructura](#estructura)
+- [Documentación](#documentación)
+- [Equipo](#equipo)
 
 ## Módulos
 
@@ -61,9 +69,6 @@ Detalle técnico en [docs/architecture](docs/architecture/README.md).
   </tr>
 </table>
 
-<div align="center">
-<sub>Además: <b>flyer personal</b> para ayudar a una persona concreta e
-<b>informe EDA</b> interactivo de 26.107 donaciones (2020–2025).</sub>
 </div>
 
 ## Datos abiertos
@@ -74,13 +79,6 @@ Detalle técnico en [docs/architecture](docs/architecture/README.md).
 | [Población atendida](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Poblaci-n-atendida-en-el-Hospital-General-de-Medel/xm8g-qeac/about_data) | 221.203 | Demanda: hospitalizaciones |
 | [Defunciones](https://www.datos.gov.co/Salud-y-Protecci-n-Social/Defunciones-ocurridas-en-en-el-Hospital-General-de/hwwv-mhse/about_data) | 5.094 | Demanda: muertes asociadas a sangre |
 
-## Hallazgos que guían el producto
-
-> **El riesgo no es la rareza sino la estructura.** El O− dona a los 8 tipos pero
-> es solo el 9 % de los donantes: se vigila aparte del volumen total. Diciembre es
-> el mes más crítico, así que las campañas se activan en noviembre. Y como la edad
-> es lo único que separa a los donantes, se segmenta por canal, no por mensaje.
-
 ## Ejecutar
 
 ```bash
@@ -89,7 +87,7 @@ uv run python scripts/build_db_and_model.py   # (una vez) modelo + base de datos
 uv run uvicorn src.app:app --port 8000        # http://localhost:8000
 ```
 
-Variables de entorno en `.env` (no versionado): `GEMINI_API_KEY` para el
+Variables de entorno en `.env`: `GEMINI_API_KEY` para el
 asistente de campañas y la búsqueda de lugares.
 
 ## Estructura
@@ -108,12 +106,14 @@ Sanghelios/
 └── deployments/     docker · kubernetes · serverless
 ```
 
-[Marco metodológico](docs/marco_metodologico.md) ·
-[Impacto público](docs/public_impact_assessment.md) ·
-[Guía de validación](docs/validación_guide.md) ·
-[Arquitectura](docs/architecture/README.md) ·
-[API](docs/api_spec.md) ·
-[Conclusiones](docs/conclusiones.md)
+## Documentación
+
+- [Marco metodológico](docs/marco_metodologico.md)
+- [Impacto público](docs/public_impact_assessment.md)
+- [Guía de validación](docs/validación_guide.md)
+- [Arquitectura](docs/architecture/README.md)
+- [API](docs/api_spec.md)
+- [Conclusiones](docs/conclusiones.md)
 
 ## Equipo
 
