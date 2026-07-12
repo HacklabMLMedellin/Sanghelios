@@ -7,6 +7,7 @@ from manim import (
     NORMAL,
     UP,
     BLACK,
+    Circle,
     Create,
     FadeIn,
     Flash,
@@ -15,11 +16,32 @@ from manim import (
     LaggedStart,
     Line,
     Rectangle,
+    RoundedRectangle,
     VGroup,
 )
 
 from componentes import parrafo, texto, titulo
 from estilo import GRIS, ROJO
+
+
+def _persona(color, opacity):
+    cabeza = Circle(
+        radius=0.1, stroke_width=0, fill_color=color, fill_opacity=opacity,
+    )
+    cuerpo = RoundedRectangle(
+        width=0.24, height=0.28, corner_radius=0.12,
+        stroke_width=0, fill_color=color, fill_opacity=opacity,
+    ).next_to(cabeza, DOWN, buff=0.04)
+    return VGroup(cabeza, cuerpo)
+
+
+def _pictografo(total=10, rojos=6):
+    """Fila-grilla de figuritas: las primeras ``rojos`` en rojo (grupo O)."""
+    figuras = VGroup(*[
+        _persona(ROJO, 1.0) if i < rojos else _persona(GRIS, 0.5)
+        for i in range(total)
+    ])
+    return figuras.arrange_in_grid(rows=2, cols=5, buff=0.18)
 
 
 def construir(scene):
@@ -63,13 +85,17 @@ def construir(scene):
         color=GRIS, stroke_width=2.5,
     )
 
-    tarjeta_o = parrafo([
-        ("≈ 60 %", 58, ROJO, BOLD),
-        ("de la población es grupo O:", 21, BLACK, NORMAL),
+    pictografo = _pictografo(total=10, rojos=6)
+    leyenda = texto("6 de cada 10 personas", 18, color=GRIS)
+    mensaje = parrafo([
+        ("≈ 60 %", 56, ROJO, BOLD),
+        ("de la población es grupo O", 21, BLACK, NORMAL),
         ("solo puede recibir O− u O+", 24, ROJO, BOLD),
-    ], buff=0.18).move_to(np.array([4.35, 0.75, 0]))
-    nota_o = texto("52,1 % (O+)  +  7,0 % (O−)  =  59,1 %", 17, color=GRIS)
-    nota_o.next_to(tarjeta_o, DOWN, buff=0.3)
+    ], buff=0.16)
+    tarjeta_o = VGroup(
+        VGroup(pictografo, leyenda).arrange(DOWN, buff=0.18),
+        mensaje,
+    ).arrange(DOWN, buff=0.4).move_to(np.array([4.35, 0.5, 0]))
 
     fuente = texto(
         "Fuente: Banco de sangre · Hospital Pablo Tobón Uribe · 87.481 donantes",
@@ -98,11 +124,15 @@ def construir(scene):
         Indicate(barras[2], scale_factor=1.15, color=ROJO),
         run_time=0.8,
     )
-    scene.play(FadeIn(tarjeta_o, shift=UP * 0.2), run_time=0.7)
     scene.play(
-        FadeIn(nota_o),
-        Flash(tarjeta_o[0], color=ROJO, line_length=0.3),
-        run_time=0.6,
+        LaggedStart(*[FadeIn(f, shift=UP * 0.1) for f in pictografo], lag_ratio=0.12),
+        run_time=1.2,
+    )
+    scene.play(FadeIn(leyenda), run_time=0.4)
+    scene.play(
+        FadeIn(mensaje, shift=UP * 0.2),
+        Flash(mensaje[0], color=ROJO, line_length=0.3),
+        run_time=0.7,
     )
     scene.play(FadeIn(fuente), run_time=0.4)
     scene.wait(0.5)

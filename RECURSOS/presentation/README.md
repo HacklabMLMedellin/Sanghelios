@@ -73,7 +73,7 @@ uv run manim-slides convert --to=pptx presentation presentation.pptx
 
 ```
 RECURSOS/presentation/
-├── main.py            # Orquestador: clase `presentation` que recorre SLIDES
+├── main.py            # Orquestador: clase `presentation` (mixins Slides*) que llama a los métodos slide_*
 ├── estilo.py          # Paleta, tipografía y constantes compartidas
 ├── componentes.py     # Fábricas de mobjects (tarjetas, reloj, árboles…)
 ├── animaciones.py     # Helpers de animación que reciben la escena
@@ -97,8 +97,9 @@ RECURSOS/presentation/
 ```
 
 Para agregar una diapositiva: crea `diapositivas/nueva.py` con una función
-`construir(scene)` y regístrala en la lista `SLIDES` de
-`diapositivas/__init__.py` en la posición deseada.
+`construir(scene)`, exponla como método en el mixin temático adecuado de
+`diapositivas/__init__.py` (`slide_nueva = _slide(nueva.construir)`) y llama a
+`self.slide_nueva()` en el `construct` de `main.py`, en la posición deseada.
 
 ## Diapositivas
 
