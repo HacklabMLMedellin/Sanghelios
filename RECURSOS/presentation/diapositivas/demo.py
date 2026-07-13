@@ -95,7 +95,7 @@ def _reproducir_video(scene, rutas, centro, ancho_max, alto_max):
 
 
 def construir(scene):
-    encabezado = titulo("Veámoslo en vivo")
+    encabezado = titulo("Veámoslo en acción")
 
     # ── Ventana de navegador ──
     ancho_v, alto_v = 9.6, 4.9

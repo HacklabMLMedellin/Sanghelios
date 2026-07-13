@@ -43,7 +43,7 @@ def construir(scene):
     encabezado = titulo("Predicamos con el ejemplo: ya estamos donando")
 
     donantes = Group(
-        _donante("miguel", "José Miguel"),
+        _donante("miguel", "Jose Miguel"),
         _donante("jero", "Jero"),
         _donante("daniel", "Daniel"),
     ).arrange(RIGHT, buff=0.55)

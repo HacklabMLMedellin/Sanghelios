@@ -43,7 +43,7 @@ class presentation(
         self.slide_noticias()
         self.slide_cifras()
         self.slide_datos()
-        self.slide_grupo_o()
+
         self.slide_pregunta()
 
         self.slide_modulos()
